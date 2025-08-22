@@ -2,12 +2,13 @@ import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
+import { Link } from "react-router-dom";
 
-export default function SimpleCard({ img, link, linkName }) {
+export default function SimpleCard({ img, link, linkName, onClick }) {
   return (
     <Card
+      onClick={onClick}
       sx={{
         width: 350,
         height: 300,
@@ -15,8 +16,8 @@ export default function SimpleCard({ img, link, linkName }) {
         borderRadius: 5,
         borderColor: `white`,
         boxShadow: 8,
-        ":hover": { boxShadow:16 },
-        transition: "all 0.2s ease-in-out", 
+        ":hover": { boxShadow: 16 },
+        transition: "all 0.2s ease-in-out",
       }}
     >
       <CardActionArea sx={{ textAlign: "center", height: "100%" }}>
@@ -31,7 +32,19 @@ export default function SimpleCard({ img, link, linkName }) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            <Link href={link} underline="hover">
+            <Link
+              to={link}
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+              }}
+              onMouseOver={(e) =>
+                (e.currentTarget.style.textDecoration = "underline")
+              }
+              onMouseOut={(e) =>
+                (e.currentTarget.style.textDecoration = "none")
+              }
+            >
               {linkName}
             </Link>
           </Typography>

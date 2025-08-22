@@ -158,7 +158,7 @@ export default function SignupForm() {
                   htmlFor="Cpassword"
                   className="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
                 >
-                  password
+                  Confirm password
                 </label>
                 <input
                   onChange={(e) => setConfirmPassword(e.target.value)}

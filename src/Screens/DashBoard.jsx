@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import SimpleCard from "../Components/Card";
 import SideBar from "../Components/SideNav";
 
 const DashBoard = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <SideBar />
@@ -16,6 +19,7 @@ const DashBoard = () => {
             }
             link={"/examschedule"}
             linkName={"EXAM SCHEDULE"}
+            onClick={() => navigate("/examschedule")}
           />
 
           <SimpleCard
@@ -24,6 +28,7 @@ const DashBoard = () => {
             }
             link={"/feesstructure"}
             linkName={"FEE STRUCTURE"}
+            onClick={() => navigate("/feesstructure")}
           />
 
           <SimpleCard
@@ -32,6 +37,7 @@ const DashBoard = () => {
             }
             link={"/classlist"}
             linkName={"CLASS LIST"}
+            onClick={() => navigate("/classlist")}
           />
         </div>
       </main>
